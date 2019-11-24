@@ -1,0 +1,99 @@
+import excel file
+class Node:
+	initialize data, prev item, next item of Node
+
+class Porduct:
+	constructor initializes SKU, Width, Length, Fragile, Weight
+
+class Queue:
+	constructor initializes head and tail of linked list
+
+		function Add(item)
+			if head is none
+				head = item
+				tail = item
+			else 
+				tail.next = item
+				item. prev = tail
+				tail = item
+
+		function getItemLocation(SKU)
+			let not_found = 1
+			current_node = head
+			while current_node.next is not none
+				if data is found
+					return current_node
+				current_node = current_node.next
+
+			else data is found #check if head is the item
+				return current_node
+			return not_found
+
+		function delete(SKU)
+			find item using getItemLocation function
+			if item is not the tail
+				delete item from linked list and create link for two other side nodes
+			else item is the tail
+				delete item and let the previous be the tail
+
+		function addSku(SKU)
+			input width, height, length, weight, Fragile
+			add data to sku list using Add function
+
+		fucntion shipping(SKU)
+			if sku = 0 
+				end function
+			else
+				find item using getItemLocation function with Sku as arguement
+				if item is not found
+					print do you want to add item to the sku list
+					if answer is yes
+						add item using addSku function and get shipping data by shipping function
+					if answer is no
+						end function
+
+				else print SKU data includes SKU number, LxWxH, total dimension and Fragile status
+					if the item is fragile print F
+					if the item weight < 3 print first class shipping
+					if item weight <70lbs and total dimension <=108 print flat rate medium box shipping
+					else print extra large item. wrap only and truck delivery
+
+
+		function print_inventory
+			current_node =head
+			while current_node.next is not none
+				current_node = current_node.next
+				print sku data
+
+
+		function traverse_tail_to_head
+			current_node =tail
+			while current_node.previous is not none
+				print sku data
+				current_node = current_node.previous
+				
+
+
+end class 
+
+for i in range 1 to number of rows
+	add data from excel file to product 
+
+for i in range number of rows
+	add product to SKU linklist using add function
+
+while loop is true
+	input option
+	if option = 1
+		print what item user wants to ship
+		if answer = 0 then go back to menu
+		else call shipping function to print product shipping data
+	if option = 2
+		print all inventory using print_inventory option
+	if option = 3
+		print inventory from new to old using traverse_tail_to_head
+	if option = 4
+		loop is false
+		end loop
+	else print invalied input end return to menu
+end program
